@@ -40,4 +40,6 @@ $(document).ready(function() {
             })
           }        
     })
+
+    $('#copyright').html(`&copy ${new Date().getUTCFullYear()}. My Project.`)
 })

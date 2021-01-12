@@ -3,8 +3,8 @@
 ?>
 
   <title>GTUC Student - Login</title>
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.min.css" rel="stylesheet">
+  <link href="css/css.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-dark">

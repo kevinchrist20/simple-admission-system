@@ -1,3 +1,7 @@
+<?php
+  require_once("inc/handler.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,3 +17,6 @@
 
   <!-- Custom fonts for this template-->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.min.css" rel="stylesheet">

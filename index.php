@@ -4,8 +4,6 @@
 
   <title>GTUC Student - Register</title>
   <link href="css/css.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-dark">
