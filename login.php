@@ -2,7 +2,7 @@
   require_once("inc/head.php");
 ?>
 
-  <title>GTUC Student - Register</title>
+  <title>GTUC Student - Login</title>
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.min.css" rel="stylesheet">
 </head>
@@ -11,7 +11,7 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Register</div>
+      <div class="card-header">Login</div>
       <div class="card-body">
         <form>
           <div class="form-group">
@@ -26,10 +26,10 @@
               <label for="inputPassword">Password</label>
             </div>
           </div>
-          <input type="submit" class="btn btn-primary btn-block" value="Register">
+          <input type="submit" class="btn btn-primary btn-block" value="Login">
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.php">Have an account? Login</a>
+          <a class="d-block small mt-3" href="index.php">Register an Account</a>
           <!-- <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
         </div>
       </div>

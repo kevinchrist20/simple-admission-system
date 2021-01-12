@@ -1,5 +1,3 @@
-<?php
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Login</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
-?>
+  <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
