@@ -1,9 +1,6 @@
 <?php
-
 	date_default_timezone_set('UTC');
 	
-	/* Provide database name, host, user and password to establish connection*/
-
 	$server = "local";
 	$link = "";
 	$base = "";
@@ -13,14 +10,11 @@
 		define("HOST", "");
 		define("USER", "");
 		define("PASSWORD", "");
-		$link = "www.bibliosapologia.com/";
-		$base = "https://www.bibliosapologia.com/";
 	} else {
-		define("DBNAME", "biblio");
+		define("DBNAME", "gtuc_db");
 		define("HOST", "localhost");
 		define("USER", "root");
 		define("PASSWORD", "");
-		$base = "http://localhost/biblio_2.0/";
 	}
 
     $conn = mysqli_connect(HOST, USER, PASSWORD, DBNAME);
@@ -151,14 +145,6 @@
 		$data = str_replace($my_tags, "", $data);
 
 		return $data;
-	}
-
-	function html2text($html) {
-		$dom = new DOMDocument();
-		$dom->loadHTML("<body>" . strip_tags($html, '<b><a><i><div><span><p>') . "</body>");
-		$xpath = new DOMXPath($dom);
-		$node = $xpath->query('body')->item(0);
-		return $node->textContent;
 	}
 
     function get_url($data) {

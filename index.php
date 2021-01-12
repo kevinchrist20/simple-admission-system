@@ -3,6 +3,7 @@
 ?>
 
   <title>GTUC Student - Register</title>
+  <link href="css/css.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.min.css" rel="stylesheet">
 </head>
@@ -11,12 +12,13 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
+      <div class="server-feedback"></div>
       <div class="card-header">Register</div>
       <div class="card-body">
-        <form>
+        <form id="register-form" method="POST">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="number" id="inputEmail" name="serial_no" class="form-control" placeholder="Student ID" required="required" autofocus="autofocus">
+              <input type="number" id="inputEmail" name="serial_no" class="form-control" placeholder="Serial Number" required="required" autofocus="autofocus">
               <label for="inputEmail">Serial Number</label>
             </div>
           </div>
