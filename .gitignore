@@ -1,3 +1,7 @@
-css/*
-js/*
+css/sb-admin.min.css
+css/bootstrap.css
 css/fontawesome/*
+
+js/bootstrap.js
+js/jquery-validate.js
+js/jquery.js

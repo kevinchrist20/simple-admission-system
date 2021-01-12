@@ -15,7 +15,7 @@
       <div class="server-feedback"></div>
       <div class="card-header">Register</div>
       <div class="card-body">
-        <form id="register-form" method="POST">
+        <form id="auth-form" method="POST">
           <div class="form-group">
             <div class="form-label-group">
               <input type="number" id="inputEmail" name="serial_no" class="form-control" placeholder="Serial Number" required="required" autofocus="autofocus">

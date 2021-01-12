@@ -11,9 +11,10 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
+      <div class="server-feedback"></div>
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form id="auth-form" method="POST">
           <div class="form-group">
             <div class="form-label-group">
               <input type="number" id="inputEmail" name="serial_no" class="form-control" placeholder="Student ID" required="required" autofocus="autofocus">
@@ -22,7 +23,7 @@
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Pin" required="required">
+              <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required="required">
               <label for="inputPassword">Password</label>
             </div>
           </div>
