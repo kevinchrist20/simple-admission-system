@@ -3,7 +3,6 @@
 ?>
 
   <title>GTUC Student - Login</title>
-  <link href="css/css.css" rel="stylesheet">
 
 </head>
 

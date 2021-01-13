@@ -34,6 +34,7 @@
 
         <!-- Page Content-->
         <div class="mb-5">
+        <div class="server-feedback"></div>
           <form id="admission" method="POST">
             <div class="form-group">
                 <div class="form-row">
@@ -51,7 +52,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-label-group">
-                            <input type="text" id="OtherName" name="OtherName" class="form-control" placeholder="Other name" required="required">
+                            <input type="text" id="OtherName" name="otherName" class="form-control" placeholder="Other name">
                             <label for="OtherName">Other name(s)</label>
                         </div>
                     </div>

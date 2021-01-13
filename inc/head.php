@@ -20,3 +20,4 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.min.css" rel="stylesheet">
+  <link href="css/css.css" rel="stylesheet">

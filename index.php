@@ -3,7 +3,6 @@
 ?>
 
   <title>GTUC Student - Register</title>
-  <link href="css/css.css" rel="stylesheet">
 </head>
 
 <body class="bg-dark">

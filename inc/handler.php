@@ -43,6 +43,15 @@
 		return $data;
 	}
 
+	function join_name($fname, $lname, $oname){
+		return $fname . " " . $lname . " ". $oname;
+	}
+
+	function validate_date($date, $format = 'Y-m-d'){
+		$d = DateTime::createFromFormat($format, $date);
+		return $d && $d->format($format) == $date;
+	}
+
 	function sanitize($data) {
 		$conn = $GLOBALS['CONNECTION'];
 		$data = htmlentities(trim($data));
