@@ -7,11 +7,9 @@
       exit();
     }
 
-    $sql = "SELECT `faculty`.`name`, course_name FROM `course` INNER JOIN `faculty` ON course.faculty_id = `faculty`.id";
+    $sql = "SELECT * FROM `faculty`";
     $query = mysqli_query($conn, $sql) or die(ip_logger(mysqli_error($conn)));
-
-    $faculty_sql = "SELECT * FROM `faculty` WHERE 1";
-    $faculty_query = mysqli_query($conn, $faculty_sql) or die(ip_logger(mysqli_error($conn)));
+    $frow = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
 
   <title>GTUC | Student Dashboard</title>
@@ -40,65 +38,76 @@
 
         <!-- Icon Cards-->
         <div class="row">
-            <div class="col-md-8">
-                <form id="programme" method="POST">
-                    <div class="card card-register mx-auto mt-5">
-                      <div class="card-header">First Choice</div>
-                        <div class="card-body">
-                            <div class="form-label-group mb-4">
-                                <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
-                                    <option value="" selected disabled hidden>Select Faculty</option>
-                                    <option value="male">Male</option>
-                                </select> 
-                            </div>
-                            <div class="form-label-group">
-                                <select form="programme" id="selectProgramme" class="custom-select form-control" name="first_choice" required>
-                                    <option value="" selected disabled hidden>Select Programme</option>
-                                    <option value="male">Male</option>
-                                </select> 
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card card-register mx-auto mt-5">
-                        <div class="card-header">Second Choice</div>
-                            <div class="card-body">
-                                <div class="form-label-group mb-4">
-                                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
-                                        <option value="" selected disabled hidden>Select Faculty</option>
-                                        <option value="male">Male</option>
-                                    </select> 
-                                </div>
-                                <div class="form-label-group">
-                                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="second_choice" required>
-                                        <option value="" selected disabled hidden>Select Programme</option>
-                                        <option value="male">Male</option>
-                                    </select> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-register mx-auto mt-5">
-                        <div class="card-header">Third Choice</div>
-                            <div class="card-body">
-                                <div class="form-label-group mb-4">
-                                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
-                                        <option value="" selected disabled hidden>Select Faculty</option>
-                                        <option value="male">Male</option>
-                                    </select> 
-                                </div>
-                                <div class="form-label-group">
-                                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="third_choice" required>
-                                        <option value="" selected disabled hidden>Select Programme</option>
-                                        <option value="male">Male</option>
-                                    </select> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+          <div class="col-md-8">
+            <form id="programme" method="POST">
+            <!-- First Choice -->
+              <div class="card card-register mx-auto mt-5">
+                <div class="card-header">
+                  First Choice
+                </div>
+                <div class="card-body">
+                  <div class="form-label-group mb-4">
+                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                      <option value="" selected disabled hidden>Select Faculty</option>
+                      <?php foreach($frow as $row): ?>
+                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                  </div>
+                  <div class="form-label-group">
+                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="first_choice" required>
+                      <option value="" selected disabled hidden>Select Programme</option>
+                      <option value="male">Male</option>
+                    </select> 
+                  </div>
+                </div>
+              </div>
+              <!-- Second Choice -->
+              <div class="card card-register mx-auto mt-5">
+                <div class="card-header">Second Choice</div>
+                <div class="card-body">
+                  <div class="form-label-group mb-4">
+                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                      <option value="" selected disabled hidden>Select Faculty</option>
+                      <?php foreach($frow as $row): ?>
+                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                  </div>
+                  <div class="form-label-group">
+                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="second_choice" required>
+                      <option value="" selected disabled hidden>Select Programme</option>
+                      <option value="male">Male</option>
+                    </select> 
+                  </div>
+                </div>
+              </div>
+              <!-- Third Choice -->
+              <div class="card card-register mx-auto mt-5 mb-4">
+                <div class="card-header">Third Choice</div>
+                <div class="card-body">
+                  <div class="form-label-group mb-4">
+                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                      <option value="" selected disabled hidden>Select Faculty</option>
+                      <?php foreach($frow as $row): ?>
+                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                  </div>
+                  <div class="form-label-group">
+                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="third_choice" required>
+                      <option value="" selected disabled hidden>Select Programme</option>
+                      <option value="male">Male</option>
+                    </select> 
+                  </div>
+                </div>
+              </div>
+
+              <input type="submit" class="btn btn-primary float-right mb-2" value="Save and continue">
+            </form>
+          </div>
         </div>
+
       </div>
       <!-- /.container-fluid -->
 
