@@ -12,12 +12,12 @@
           <span>Admission</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="programmes.html">
+        <a class="nav-link" href="programmes.php">
           <i class="fas fa-fw fa-list"></i>
           <span>Programme Selection</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="results.html">
+        <a class="nav-link" href="results.php">
           <i class="fas fa-fw fa-file-upload"></i>
           <span>Upload Results</span></a>
       </li>
