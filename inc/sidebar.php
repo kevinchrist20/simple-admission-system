@@ -21,4 +21,9 @@
           <i class="fas fa-fw fa-file-upload"></i>
           <span>Upload Results</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="results.php">
+          <i class="fas fa-fw fa-file-alt"></i>
+          <span>Summary</span></a>
+      </li>
     </ul>
