@@ -7,9 +7,6 @@
         exit();
     }
 
-    // $sql = "SELECT `faculty`.`name`, course_name FROM `course` INNER JOIN `faculty` ON course.faculty_id = `faculty`.id";
-    // $query = mysqli_query($conn, $sql) or die(ip_logger(mysqli_error($conn)));
-
     $response = array();
     if(isset($_GET['faculty_id']) && !empty($_GET['faculty_id'])) {
         $faculty_id = filter_var($_GET['faculty_id'], FILTER_SANITIZE_NUMBER_INT);
