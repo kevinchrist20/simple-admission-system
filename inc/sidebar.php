@@ -22,7 +22,7 @@
           <span>Upload Results</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="results.php">
+        <a class="nav-link" href="summary.php">
           <i class="fas fa-fw fa-file-alt"></i>
           <span>Summary</span></a>
       </li>
