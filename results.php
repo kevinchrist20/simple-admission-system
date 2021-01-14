@@ -37,7 +37,7 @@
         <div class="server-feedback"></div>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card card-register mx-auto mt-5">
+                <div class="card card-register mx-auto mt-5 mb-5">
                     <div class="card-header">
                         Upload Results
                     </div>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="custom-file">
-                                    <input type="file" accept=".pdf" class="custom-file-input" name="pdf_file" required>
+                                    <input type="file" accept=".pdf" class="custom-file-input" name="file" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Results PDF</label>
                                 </div>
                             </div>

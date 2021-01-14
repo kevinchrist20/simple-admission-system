@@ -141,6 +141,7 @@ $(document).ready(function() {
         getCourses(facultyID, "selectProgramme3")
     })
 
+    // Programme Selection request and validation
     $('#programme').validate({
         errorClass: "my-error",
         rules: {
@@ -169,8 +170,8 @@ $(document).ready(function() {
                 success: function(data) {
                     if (data['success']) {
                         $('.server-feedback').addClass('text-center alert alert-success')
-                            .html(`<span>${data['msg']}  Redirecting...</span>`)
-                        window.location.href = data['redirect-url']
+                            .html(`<span>${data['msg']}</span>`)
+                        redirect(data['redirect-url'])
                     } else {
                         $('.server-feedback').addClass('text-center alert alert-danger').html(`<span>${data['msg']}</span>`)
                     }
@@ -182,13 +183,51 @@ $(document).ready(function() {
         }
     })
 
+    // File upload validation and request
+    $('#upload-file').validate({
+        errorClass: "my-error",
+        rules: {
+            result_type: {
+                required: true,
+            },
+            file: {
+                required: true,
+            }
+        },
+
+        submitHandler: function(form) {
+            let data = new FormData(form)
+            $.ajax({
+                url: 'res/file-upload.php',
+                method: 'POST',
+                dataType: 'json',
+                data: data,
+                mimeType: "multipart/form-data",
+                processData: false,
+                contentType: false,
+
+                success: function(data) {
+                    if (data['success']) {
+                        $('.server-feedback').addClass('text-center alert alert-success')
+                            .html(`<span>${data['msg']}</span>`)
+                        redirect(data['redirect-url'])
+                    } else {
+                        $('.server-feedback').addClass('text-center alert alert-danger').html(`<span>${data['msg']}</span>`)
+                    }
+                },
+                error: function(err) {
+                    $('.server-feedback').addClass('text-center alert alert-danger').html("<span> Internal Server Error<span>")
+                }
+            })
+        }
+    })
 })
 
 // Redirect
 function redirect(link) {
     setTimeout(function() {
         window.location.href = link
-    }, 300);
+    }, 1000);
 }
 
 // Fetch courses in faculty

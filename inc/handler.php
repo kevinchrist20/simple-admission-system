@@ -30,7 +30,7 @@
     $script = $_SERVER['SCRIPT_NAME'];
 	$script = explode("/", $script);
 	$script = $script[count($script) - 1];
-	$image_size = 20 * 1024 * 1024;
+	$file_size = 20 * 1024 * 1024;
 
 
 	function sterilize($data, $strip = false) {
@@ -121,19 +121,8 @@
 		return ucwords(strtolower($string));
 	}
 
-	function check_image_type($data) {
-		return in_array(get_image_type($data), array("jpg","jpeg","png"));
-	}
-
-	function post_url($uuid, $title) {
-		global $base;
-		$title = str_replace(" ", "-", strtolower(strip_sql($title)));
-		return $base . "post/" . $uuid . "/" . $title;
-	}
-
-	function category_url($cat_name) {
-		global $link;
-		return $link . "category/" . str_replace(" ", "-", strtolower($cat_name));
+	function check_file_type($data) {
+		return in_array(get_file_type($data), array("pdf","doc"));
 	}
 
     function ip_logger($data) {
@@ -155,16 +144,8 @@
 
 		return $data;
 	}
-
-    function get_url($data) {
-		$data = htmlspecialchars_decode($data);
-		$data = strtolower($data);
-		$data = strip_sql($data);
-		$data = str_replace([" ", "_"], "-", $data);
-		return $data;
-	}
     
-    function get_image_type($data) {
+    function get_file_type($data) {
 		return strtolower(pathinfo($data, PATHINFO_EXTENSION));
 	}
 

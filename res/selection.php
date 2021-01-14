@@ -35,12 +35,6 @@
         $third_choice = sanitize($_POST['third_choice']);
         $serial_no = get_user_session("serial_no");
 
-        $sql = "INSERT INTO persons (first_name, last_name, email) VALUES
-            ('John', 'Rambo', 'johnrambo@mail.com'),
-            ('Clark', 'Kent', 'clarkkent@mail.com'),
-            ('John', 'Carter', 'johncarter@mail.com'),
-            ('Harry', 'Potter', 'harrypotter@mail.com')";
-
         $sql = "INSERT INTO `courses_taken`(`user_id`, `course_id`, `choice`) VALUES
             ((SELECT `id` FROM `student` WHERE serial_no = '$serial_no'), 
             (SELECT `id` FROM `course` WHERE course_name = '$first_choice'), 'first'),
