@@ -47,7 +47,7 @@
                 </div>
                 <div class="card-body">
                   <div class="form-label-group mb-4">
-                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                    <select form="programme" id="selectFaculty1" class="custom-select form-control" name="first_faculty" required>
                       <option value="" selected disabled hidden>Select Faculty</option>
                       <?php foreach($frow as $row): ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -55,9 +55,8 @@
                     </select> 
                   </div>
                   <div class="form-label-group">
-                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="first_choice" required>
+                    <select form="programme" id="selectProgramme1" class="custom-select form-control" name="first_choice" required>
                       <option value="" selected disabled hidden>Select Programme</option>
-                      <option value="male">Male</option>
                     </select> 
                   </div>
                 </div>
@@ -67,7 +66,7 @@
                 <div class="card-header">Second Choice</div>
                 <div class="card-body">
                   <div class="form-label-group mb-4">
-                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                    <select form="programme" id="selectFaculty2" class="custom-select form-control" name="second_faculty" required>
                       <option value="" selected disabled hidden>Select Faculty</option>
                       <?php foreach($frow as $row): ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -75,9 +74,8 @@
                     </select> 
                   </div>
                   <div class="form-label-group">
-                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="second_choice" required>
+                    <select form="programme" id="selectProgramme2" class="custom-select form-control" name="second_choice" required>
                       <option value="" selected disabled hidden>Select Programme</option>
-                      <option value="male">Male</option>
                     </select> 
                   </div>
                 </div>
@@ -87,7 +85,7 @@
                 <div class="card-header">Third Choice</div>
                 <div class="card-body">
                   <div class="form-label-group mb-4">
-                    <select form="programme" id="selectFaculty" class="custom-select form-control" name="faculty" required>
+                    <select form="programme" id="selectFaculty3" class="custom-select form-control" name="third_faculty" required>
                       <option value="" selected disabled hidden>Select Faculty</option>
                       <?php foreach($frow as $row): ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -95,9 +93,8 @@
                     </select> 
                   </div>
                   <div class="form-label-group">
-                    <select form="programme" id="selectProgramme" class="custom-select form-control" name="third_choice" required>
+                    <select form="programme" id="selectProgramme3" class="custom-select form-control" name="third_choice" required>
                       <option value="" selected disabled hidden>Select Programme</option>
-                      <option value="male">Male</option>
                     </select> 
                   </div>
                 </div>

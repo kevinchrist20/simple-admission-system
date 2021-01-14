@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#copyright').html(`&copy ${new Date().getUTCFullYear()}. My Project.`)
 
     // Login and Sign up validation and request 
     $('#auth-form').validate({
@@ -110,19 +111,71 @@ $(document).ready(function() {
                     if (data['success']) {
                         $('.server-feedback').addClass('text-center alert alert-success')
                             .html(`<span>${data['msg']}</span>`)
-                        window.location.href = data['redirect-url']
+                        redirect(data['redirect-url'])
                     } else {
                         $('.server-feedback').addClass('text-center alert alert-danger').html(`<span>${data['msg']}</span>`)
-                        console.log(`My error: ${data}`)
                     }
                 },
                 error: function(xhr, status, error) {
                     $('.server-feedback').addClass('text-center alert alert-danger').html("<span> Internal Server Error<span>")
-                    console.log(`Error: ${xhr.status} : ${xhr.statusText}`)
                 }
             })
         }
     })
 
-    $('#copyright').html(`&copy ${new Date().getUTCFullYear()}. My Project.`)
+    // First Choice Courses
+    // $('#selectFaculty1').change(() => {
+    //     let facultyID = $(this).find(":selected").val()
+    //     getCourses(facultyID, "selectProgramme1")
+    // })
+
+    // Second Choice Courses
+    $('#selectFaculty2').change(() => {
+        let facultyID = $(this).find(":selected").val()
+        console.log(`Here: ${$(this).find(":selected").val()}`)
+        getCourses(facultyID, "selectProgramme2")
+    })
+
+    // Third Choice Courses
+    $('#selectFaculty3').change(() => {
+        let facultyID = $(this).find(":selected").val()
+        getCourses(facultyID, "selectProgramme3")
+    })
+
 })
+
+// Redirect
+function redirect(link) {
+    setTimeout(function() {
+        window.location.href = link
+    }, 300);
+}
+
+// Fetch courses in faculty
+function getCourses(id, courseSelectID) {
+    $.ajax({
+        url: 'res/selection.php',
+        method: 'GET',
+        dataType: 'json',
+        data: { faculty_id: id },
+
+        success: function(response) {
+            if (response['success']) {
+                addOption(response['courses'], courseSelectID)
+            } else {
+                console.log("Error")
+            }
+        },
+        error: function(xhr) {
+            console.log(`Error ${xhr}`)
+        }
+    })
+}
+
+// Added courses to option tag
+function addOption(courses, id) {
+    $(`#${id} option:enabled`).remove()
+    for (i = 0; i < courses.length; i++) {
+        $(`#${id}`).append(`<option value="${courses[i].id}">${courses[i].name}</option>`);
+    }
+}
