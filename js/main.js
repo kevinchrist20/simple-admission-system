@@ -124,22 +124,62 @@ $(document).ready(function() {
     })
 
     // First Choice Courses
-    // $('#selectFaculty1').change(() => {
-    //     let facultyID = $(this).find(":selected").val()
-    //     getCourses(facultyID, "selectProgramme1")
-    // })
+    $('#selectFaculty1').change(() => {
+        let facultyID = $(this).find(":selected").val()
+        getCourses(facultyID, "selectProgramme1")
+    })
 
     // Second Choice Courses
     $('#selectFaculty2').change(() => {
-        let facultyID = $(this).find(":selected").val()
-        console.log(`Here: ${$(this).find(":selected").val()}`)
+        let facultyID = $('#selectFaculty2').find(":selected").val()
         getCourses(facultyID, "selectProgramme2")
     })
 
     // Third Choice Courses
     $('#selectFaculty3').change(() => {
-        let facultyID = $(this).find(":selected").val()
+        let facultyID = $('#selectFaculty3').find(":selected").val()
         getCourses(facultyID, "selectProgramme3")
+    })
+
+    $('#programme').validate({
+        errorClass: "my-error",
+        rules: {
+            first_choice: {
+                required: true,
+            },
+            second_choice: {
+                required: true,
+            },
+            third_choice: {
+                required: true,
+            }
+        },
+
+        submitHandler: function(form) {
+            let first_choice = $('#selectProgramme1').find(":selected").text()
+            let second_choice = $('#selectProgramme2').find(":selected").text()
+            let third_choice = $('#selectProgramme3').find(":selected").text()
+
+            $.ajax({
+                url: 'res/selection.php',
+                method: 'POST',
+                dataType: 'json',
+                data: { first_choice: first_choice, second_choice: second_choice, third_choice: third_choice },
+
+                success: function(data) {
+                    if (data['success']) {
+                        $('.server-feedback').addClass('text-center alert alert-success')
+                            .html(`<span>${data['msg']}  Redirecting...</span>`)
+                        window.location.href = data['redirect-url']
+                    } else {
+                        $('.server-feedback').addClass('text-center alert alert-danger').html(`<span>${data['msg']}</span>`)
+                    }
+                },
+                error: function(err) {
+                    $('.server-feedback').addClass('text-center alert alert-danger').html("<span> Internal Server Error<span>")
+                }
+            })
+        }
     })
 
 })

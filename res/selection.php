@@ -28,4 +28,40 @@
         echo json_encode($response);
         exit();
     }
+
+    else if(isset($_POST['first_choice']) && isset($_POST['second_choice']) && isset($_POST['third_choice'])) {
+        $first_choice = sanitize($_POST['first_choice']);
+        $second_choice = sanitize($_POST['second_choice']);
+        $third_choice = sanitize($_POST['third_choice']);
+        $serial_no = get_user_session("serial_no");
+
+        $sql = "INSERT INTO persons (first_name, last_name, email) VALUES
+            ('John', 'Rambo', 'johnrambo@mail.com'),
+            ('Clark', 'Kent', 'clarkkent@mail.com'),
+            ('John', 'Carter', 'johncarter@mail.com'),
+            ('Harry', 'Potter', 'harrypotter@mail.com')";
+
+        $sql = "INSERT INTO `courses_taken`(`user_id`, `course_id`, `choice`) VALUES
+            ((SELECT `id` FROM `student` WHERE serial_no = '$serial_no'), 
+            (SELECT `id` FROM `course` WHERE course_name = '$first_choice'), 'first'),
+            ((SELECT `id` FROM `student` WHERE serial_no = '$serial_no'), 
+            (SELECT `id` FROM `course` WHERE course_name = '$second_choice'), 'second'),
+            ((SELECT `id` FROM `student` WHERE serial_no = '$serial_no'),
+            (SELECT `id` FROM `course` WHERE course_name = '$third_choice'), 'third')";
+        $query = mysqli_query($conn, $sql) or die(ip_logger(mysqli_error($conn)));
+
+        if($query) {
+            $response['success'] = true;
+            $response['msg'] = "Courses submitted successfully";
+            $response['redirect-url'] = "results.php";
+
+            echo json_encode($response);
+            exit();
+        }
+
+        $response['success'] = false;
+        $response['msg'] = "Internal server error!";
+        echo json_encode($response);
+        exit();
+    }
 ?>

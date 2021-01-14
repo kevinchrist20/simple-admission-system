@@ -37,6 +37,8 @@
         </ol>
 
         <!-- Icon Cards-->
+
+        <div class="server-feedback"></div>
         <div class="row">
           <div class="col-md-8">
             <form id="programme" method="POST">
