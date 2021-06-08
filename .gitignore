@@ -8,3 +8,5 @@ js/jquery.js
 js/sb-admin.js
 .vscode/*
 uploads/*.pdf
+
+.vscode/*

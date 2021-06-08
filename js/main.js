@@ -21,6 +21,7 @@ $(document).ready(function() {
 
         submitHandler: function(form) {
             $('.server-feedback').addClass('text-center alert alert-info').html(`<span>Authenticating...</span>`)
+            console.log(form)
             $.ajax({
                 url: 'res/auth.php',
                 method: 'POST',
